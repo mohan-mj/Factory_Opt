@@ -51,4 +51,12 @@ if __name__=="__main__":
     Opt1 = OPT(objective_fun=objective_fun, bounds=bounds)
     Opt1.load()
 
+    # objective function with discrete parameters
+    def objective_fun(x, y, d):
+        d = int(d)
+        return ((x + y + d) // (1 + d)) / (1 + (x + y) ** 2)
     
+    Opt2 = OPT(  objective_fun=objective_fun,
+                bounds={'x': (-10, 10), 'y': (-10, 10), 'd': (0, 5)},
+            )
+    Opt2.run()
