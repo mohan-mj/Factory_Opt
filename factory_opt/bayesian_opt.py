@@ -10,7 +10,7 @@ class OPT:
                                                 pbounds=bounds,
                                                 verbose=verbose, random_state=1)
 
-    def run(self, init_points=2, n_iter=3):
+    def run(self, init_points=2, n_iter=5):
         self.optimizer.maximize(init_points=init_points, n_iter=n_iter)
         print(self.optimizer.max)
 
